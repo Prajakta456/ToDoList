@@ -1,0 +1,41 @@
+<%- include("header") -%>
+   
+    <div class="box" id="heading">
+      <h1> <%= listTitle %> </h1>
+    </div>
+
+ 
+    <!--we have to add scriplet tag around any part of the code that is not html-->
+    <!--These scriplet tags work line by line, you have to add them to each line of code-->
+    <!--scriplet tag allows us to write some basic JS code especially for control purposes-->
+    <!--so we can render our html code diffrenetly depending on the value of the variable that got passed in-->
+<!-- scriplet tag allows use to use only control flow JS as in most cases you would like to keep 
+your logic on the server  -->
+<!-- and you are only doing something that is difficult to do on your server or can be done much quickly in your template-->
+
+
+    
+<div class="box">
+    <% for(var i=0;i< newListItems.length ;i++) { %>
+
+        <div class="item">
+          <input type="checkbox">
+           <p><%= newListItems[i] %> </p>
+        </div> 
+        
+        
+    <% } %>
+
+    <div class="item">
+    <form  action="/" method="POST">
+    
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off"></input>
+    
+        <button type="submit" name="list" value= <%= listTitle %>> + </button>
+        <!-- dynamic value that we get from the server in variable listTitle-->
+    </form>
+
+     </div>
+ </div>   
+
+ <%- include("footer") -%>
